@@ -80,6 +80,25 @@ public class TicTacToeGame {
 		}
 	}
 
+	private void determineWhoPlaysFirstUC6() {
+		
+		if(this.returnHeadOrTail().equalsIgnoreCase("head")) {
+			System.out.println("Player plays first");
+		}
+		else {
+			System.out.println("Computer plays first");
+		}
+	}
+
+	private String returnHeadOrTail() {
+		String checkForHeadOrTail;
+		int toss = new Random().nextInt(2);
+		if(toss==0)
+			checkForHeadOrTail = "Head";
+		else checkForHeadOrTail = "Tail";
+		return checkForHeadOrTail;
+	}
+
 	public static void main(String args[]) {
 		TicTacToeGame ticTacToeGame = new TicTacToeGame();
 		char[] ticTacToeBoard = ticTacToeGame.createAndReturnBoardUC1();
@@ -87,5 +106,7 @@ public class TicTacToeGame {
 		ticTacToeGame.displayBoardUC3();
 		int index = ticTacToeGame.abilityToMakeMoveForPlayerUC4();
 		ticTacToeGame.displayBoardUC3();
+		ticTacToeGame.determineWhoPlaysFirstUC6();
 	}
+
 }
