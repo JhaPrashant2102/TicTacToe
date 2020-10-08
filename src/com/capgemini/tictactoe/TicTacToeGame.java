@@ -14,15 +14,16 @@ public class TicTacToeGame {
 		return computerChar;
 	}
 
-	public void setComputerChar(char computerChar) {
-		this.computerChar = computerChar;
-	}
-
-	public void setPlayerChar(char playerChar) {
+	public void setComputerChar(char playerChar) {
 		if(playerChar == 'O')
 			this.computerChar = 'X';
 		else
 			this.computerChar = 'O';
+	}
+
+	public void setPlayerChar(char playerChar) {
+
+		this.playerChar = playerChar;
 	}
 
 	/**
@@ -36,7 +37,7 @@ public class TicTacToeGame {
 		}
 		return board;
 	}
-
+	
 	/**
 	 * UC2
 	 * set player and computer character
@@ -51,7 +52,6 @@ public class TicTacToeGame {
 		TicTacToeGame ticTacToeGame = new TicTacToeGame();
 		char[] ticTacToeBoard = ticTacToeGame.createAndReturnBoardUC1();
 		ticTacToeGame.allowPlayerToChoseFromXandOUC2();
-		
 	}
 
 
