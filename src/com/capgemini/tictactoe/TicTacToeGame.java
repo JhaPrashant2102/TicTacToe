@@ -7,6 +7,7 @@ public class TicTacToeGame {
 	private char[] board;
 	private char playerChar;
 	private char computerChar;
+	private int count = 0;
 
 	public static enum Player {
 		USER, COMPUTER
@@ -106,15 +107,23 @@ public class TicTacToeGame {
 	}
 
 	private void determineNextMoveUC7(Player player) {
+		count ++;
 		if (player.USER == player) {
 			displayBoardUC3();
 			abilityToMakeMoveForPlayerUC4();
 			if (checkifPlayerWon()) {
 				System.out.println("Player won");
+				displayBoardUC3();
 				return;
 			}
 			if (checkifComputerWon()) {
 				System.out.println("Computer won");
+				displayBoardUC3();
+				return;
+			}
+			if(count==9) {
+				System.out.println("It resulted in a draw");
+				displayBoardUC3();
 				return;
 			}
 			determineNextMoveUC7(player.COMPUTER);
@@ -122,10 +131,16 @@ public class TicTacToeGame {
 			abilityToMakeMoveForComputerUC8();
 			if (checkifComputerWon()) {
 				System.out.println("Computer won");
+				displayBoardUC3();
 				return;
 			}
 			if (checkifPlayerWon()) {
 				System.out.println("Player won");
+				return;
+			}
+			if(count==9) {
+				System.out.println("It resulted in a draw");
+				displayBoardUC3();
 				return;
 			}
 			determineNextMoveUC7(player.USER);
@@ -148,7 +163,26 @@ public class TicTacToeGame {
 				board[i]=' ';
 			}
 		}
-
+		
+		if(board[1]==' ') {
+			board[1]=computerChar;
+			return;
+		}
+		else if(board[3]==' ') {
+			board[3]=computerChar;
+			return;
+		}
+		else if(board[7]==' ') {
+			board[7]=computerChar;
+			return;
+		}
+		else if(board[9]==' ') {
+			board[9]=computerChar;
+			return;
+		}
+			
+		
+		/*
 		// check in row1
 		if (board[1] != playerChar && board[2] != playerChar && board[3] != playerChar) {
 			if (board[1] == ' ')
@@ -253,6 +287,7 @@ public class TicTacToeGame {
 			return;
 		}
 		abilityToMakeMoveForComputer1();
+		*/
 	}
 
 	private void abilityToMakeMoveForComputer1() {
