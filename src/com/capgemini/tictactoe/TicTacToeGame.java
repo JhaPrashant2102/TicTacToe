@@ -61,14 +61,22 @@ public class TicTacToeGame {
 		}
 	}
 
-	private void abilityToMakeMoveForPlayerUC4() {
+	private int abilityToMakeMoveForPlayerUC4() {
 		System.out.println("Enter the position where you want to add : " + playerChar);
 		Scanner sc = new Scanner(System.in);
 		int index = sc.nextInt();
-		if (board[index] == ' ')
+		if(index<1&&index>10) {
+			System.out.println("Invalid position");
+			return -1;
+		}
+		if (board[index] == ' ') {
 			board[index] = playerChar;
-		else
+			return index;
+		}
+		else {
 			System.out.println("This position is already filled");
+			return 0;
+		}
 	}
 
 	public static void main(String args[]) {
@@ -76,7 +84,7 @@ public class TicTacToeGame {
 		char[] ticTacToeBoard = ticTacToeGame.createAndReturnBoardUC1();
 		ticTacToeGame.allowPlayerToChoseFromXandOUC2();
 		ticTacToeGame.displayBoardUC3();
-		ticTacToeGame.abilityToMakeMoveForPlayerUC4();
+		int index = ticTacToeGame.abilityToMakeMoveForPlayerUC4();
 		ticTacToeGame.displayBoardUC3();
 	}
 }
