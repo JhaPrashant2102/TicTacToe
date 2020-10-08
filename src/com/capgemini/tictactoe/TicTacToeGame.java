@@ -62,20 +62,21 @@ public class TicTacToeGame {
 	}
 
 	private int abilityToMakeMoveForPlayerUC4() {
-		System.out.println("Enter the position where you want to add : " + playerChar);
-		Scanner sc = new Scanner(System.in);
-		int index = sc.nextInt();
-		if(index<1&&index>10) {
-			System.out.println("Invalid position");
-			return -1;
-		}
-		if (board[index] == ' ') {
-			board[index] = playerChar;
-			return index;
-		}
-		else {
-			System.out.println("This position is already filled");
-			return 0;
+		while (true) {
+			System.out.println("Enter the position where you want to add : " + playerChar);
+			Scanner sc = new Scanner(System.in);
+			int index = sc.nextInt();
+			if (index < 1 || index > 10) {
+				System.out.println("Invalid position");
+				continue;
+			}
+			if (board[index] == ' ') {
+				board[index] = playerChar;
+				return index;
+			} else {
+				System.out.println("This position is already filled");
+				continue;
+			}
 		}
 	}
 
