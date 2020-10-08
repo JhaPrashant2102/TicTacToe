@@ -164,6 +164,7 @@ public class TicTacToeGame {
 			}
 		}
 		
+		//choosing out of 4 corners
 		if(board[1]==' ') {
 			board[1]=computerChar;
 			return;
@@ -180,11 +181,20 @@ public class TicTacToeGame {
 			board[9]=computerChar;
 			return;
 		}
+
+		//choosing centre
 		else if(board[5]==' ') {
 			board[5]=computerChar;
 			return;
 		}
-			
+		
+		//choosing rest
+		for(int i =2 ; i<=8; i=i+2) {
+			if(board[i]==' ') {
+				board[i]=computerChar;
+				return;
+			}
+		}
 		
 		/*
 		// check in row1
