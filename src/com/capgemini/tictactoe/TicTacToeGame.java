@@ -33,7 +33,7 @@ public class TicTacToeGame {
 	private char[] createAndReturnBoardUC1() {
 		this.board = new char[10];
 		for (int index = 1; index < 10; index++) {
-			board[index] = ' ';
+			board[index] = 'X';
 		}
 		return board;
 	}
@@ -48,11 +48,23 @@ public class TicTacToeGame {
 		this.setPlayerChar(sc.next().charAt(0));
 		this.setComputerChar(this.playerChar);
 	}
+	
+	private void diplayBoardUC3() {
+		for(int row = 0;row<3;row++) {
+			for(int col = row*3+1;col<row*3+4;col++) {
+				System.out.print(board[col]);
+			}
+			System.out.println(" ");
+		}
+	}
+	
 	public static void main(String args[]) {
 		TicTacToeGame ticTacToeGame = new TicTacToeGame();
 		char[] ticTacToeBoard = ticTacToeGame.createAndReturnBoardUC1();
 		ticTacToeGame.allowPlayerToChoseFromXandOUC2();
+		ticTacToeGame.diplayBoardUC3();
 	}
+
 
 
 }
