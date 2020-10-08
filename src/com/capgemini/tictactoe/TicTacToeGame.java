@@ -180,6 +180,10 @@ public class TicTacToeGame {
 			board[9]=computerChar;
 			return;
 		}
+		else if(board[5]==' ') {
+			board[5]=computerChar;
+			return;
+		}
 			
 		
 		/*
