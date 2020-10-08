@@ -113,9 +113,17 @@ public class TicTacToeGame {
 				System.out.println("Player won");
 				return;
 			}
+			if (checkifComputerWon()) {
+				System.out.println("Computer won");
+				return;
+			}
 			determineNextMoveUC7(player.COMPUTER);
 		} else {
 			abilityToMakeMoveForComputerUC8();
+			if (checkifComputerWon()) {
+				System.out.println("Computer won");
+				return;
+			}
 			if (checkifPlayerWon()) {
 				System.out.println("Player won");
 				return;
@@ -125,6 +133,22 @@ public class TicTacToeGame {
 	}
 
 	private void abilityToMakeMoveForComputerUC8() {
+
+		for (int i = 1; i < 10; i++) {
+			if (board[i] == ' ') {
+				board[i] = computerChar;
+				if (checkifComputerWon()) {
+					return;
+				}
+				board[i] = playerChar;
+				if(checkifPlayerWon()) {
+					board[i]=computerChar;
+					return;
+				}
+				board[i]=' ';
+			}
+		}
+
 		// check in row1
 		if (board[1] != playerChar && board[2] != playerChar && board[3] != playerChar) {
 			if (board[1] == ' ')
@@ -228,7 +252,7 @@ public class TicTacToeGame {
 				System.out.println("Player Lost");
 			return;
 		}
-
+		abilityToMakeMoveForComputer1();
 	}
 
 	private void abilityToMakeMoveForComputer1() {
@@ -246,19 +270,34 @@ public class TicTacToeGame {
 		}
 	}
 
-	private boolean checkifPlayerWon() {
+	private boolean checkifComputerWon() {
 		for (int i = 1; i <= 7; i = i + 3) {
-			if (board[i] == playerChar && board[i + 1] == playerChar && board[i] == playerChar) {
+			if ((board[i] == computerChar) && (board[i + 1] == computerChar) && (board[i + 2] == computerChar)) {
 				return true;
 			}
 		}
 		for (int i = 1; i <= 3; i++) {
-			if (board[i] == playerChar && board[i + 3] == playerChar && board[i + 6] == playerChar) {
+			if ((board[i] == computerChar) && (board[i + 3] == computerChar) && (board[i + 6] == computerChar)) {
 				return true;
 			}
 		}
-		return (board[1] == playerChar && board[5] == playerChar && board[9] == playerChar)
-				|| (board[3] == playerChar && board[5] == playerChar && board[7] == playerChar);
+		return ((board[1] == computerChar) && (board[5] == computerChar) && (board[9] == computerChar))
+				|| ((board[3] == computerChar) && (board[5] == computerChar) && (board[7] == computerChar));
+	}
+
+	private boolean checkifPlayerWon() {
+		for (int i = 1; i <= 7; i = i + 3) {
+			if ((board[i] == playerChar) && (board[i + 1] == playerChar) && (board[i + 2] == playerChar)) {
+				return true;
+			}
+		}
+		for (int i = 1; i <= 3; i++) {
+			if ((board[i] == playerChar) && (board[i + 3] == playerChar) && (board[i + 6] == playerChar)) {
+				return true;
+			}
+		}
+		return ((board[1] == playerChar) && (board[5] == playerChar) && (board[9] == playerChar))
+				|| ((board[3] == playerChar) && (board[5] == playerChar) && (board[7] == playerChar));
 	}
 
 	public static void main(String args[]) {
