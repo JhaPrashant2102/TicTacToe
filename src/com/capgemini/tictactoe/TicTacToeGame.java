@@ -107,7 +107,7 @@ public class TicTacToeGame {
 	}
 
 	private void determineNextMoveUC7(Player player) {
-		count ++;
+		count++;
 		if (player.USER == player) {
 			displayBoardUC3();
 			abilityToMakeMoveForPlayerUC4();
@@ -121,7 +121,7 @@ public class TicTacToeGame {
 				displayBoardUC3();
 				return;
 			}
-			if(count==9) {
+			if (count == 9) {
 				System.out.println("It resulted in a draw");
 				displayBoardUC3();
 				return;
@@ -138,7 +138,7 @@ public class TicTacToeGame {
 				System.out.println("Player won");
 				return;
 			}
-			if(count==9) {
+			if (count == 9) {
 				System.out.println("It resulted in a draw");
 				displayBoardUC3();
 				return;
@@ -156,152 +156,43 @@ public class TicTacToeGame {
 					return;
 				}
 				board[i] = playerChar;
-				if(checkifPlayerWon()) {
-					board[i]=computerChar;
+				if (checkifPlayerWon()) {
+					board[i] = computerChar;
 					return;
 				}
-				board[i]=' ';
+				board[i] = ' ';
 			}
 		}
-		
-		//choosing out of 4 corners
-		if(board[1]==' ') {
-			board[1]=computerChar;
+
+		// choosing out of 4 corners
+		if (board[1] == ' ') {
+			board[1] = computerChar;
 			return;
-		}
-		else if(board[3]==' ') {
-			board[3]=computerChar;
+		} else if (board[3] == ' ') {
+			board[3] = computerChar;
 			return;
-		}
-		else if(board[7]==' ') {
-			board[7]=computerChar;
+		} else if (board[7] == ' ') {
+			board[7] = computerChar;
 			return;
-		}
-		else if(board[9]==' ') {
-			board[9]=computerChar;
+		} else if (board[9] == ' ') {
+			board[9] = computerChar;
 			return;
 		}
 
-		//choosing centre
-		else if(board[5]==' ') {
-			board[5]=computerChar;
+		// choosing centre
+		else if (board[5] == ' ') {
+			board[5] = computerChar;
 			return;
 		}
-		
-		//choosing rest
-		for(int i =2 ; i<=8; i=i+2) {
-			if(board[i]==' ') {
-				board[i]=computerChar;
+
+		// choosing rest
+		for (int i = 2; i <= 8; i = i + 2) {
+			if (board[i] == ' ') {
+				board[i] = computerChar;
 				return;
 			}
 		}
-		
-		/*
-		// check in row1
-		if (board[1] != playerChar && board[2] != playerChar && board[3] != playerChar) {
-			if (board[1] == ' ')
-				board[1] = computerChar;
-			else if (board[2] == ' ')
-				board[2] = computerChar;
-			else if (board[3] == ' ')
-				board[3] = computerChar;
-			else
-				System.out.println("Player Lost");
-			return;
-		}
 
-		// check in row2
-		if (board[4] != playerChar && board[5] != playerChar && board[6] != playerChar) {
-			if (board[4] == ' ')
-				board[4] = computerChar;
-			else if (board[5] == ' ')
-				board[5] = computerChar;
-			else if (board[6] == ' ')
-				board[6] = computerChar;
-			else
-				System.out.println("Player Lost");
-			return;
-		}
-
-		// check in row3
-		if (board[7] != playerChar && board[8] != playerChar && board[9] != playerChar) {
-			if (board[7] == ' ')
-				board[7] = computerChar;
-			else if (board[8] == ' ')
-				board[8] = computerChar;
-			else if (board[9] == ' ')
-				board[9] = computerChar;
-			else
-				System.out.println("Player Lost");
-			return;
-		}
-
-		// check in column 1
-		if (board[1] != playerChar && board[4] != playerChar && board[7] != playerChar) {
-			if (board[1] == ' ')
-				board[1] = computerChar;
-			else if (board[4] == ' ')
-				board[4] = computerChar;
-			else if (board[7] == ' ')
-				board[7] = computerChar;
-			else
-				System.out.println("Player Lost");
-			return;
-		}
-
-		// check in column 2
-		if (board[2] != playerChar && board[5] != playerChar && board[8] != playerChar) {
-			if (board[2] == ' ')
-				board[2] = computerChar;
-			else if (board[5] == ' ')
-				board[5] = computerChar;
-			else if (board[8] == ' ')
-				board[8] = computerChar;
-			else
-				System.out.println("Player Lost");
-			return;
-		}
-
-		// check in column 3
-		if (board[3] != playerChar && board[6] != playerChar && board[9] != playerChar) {
-			if (board[3] == ' ')
-				board[3] = computerChar;
-			else if (board[6] == ' ')
-				board[6] = computerChar;
-			else if (board[9] == ' ')
-				board[9] = computerChar;
-			else
-				System.out.println("Player Lost");
-			return;
-		}
-
-		// check in diagonal 1
-		if (board[1] != playerChar && board[5] != playerChar && board[9] != playerChar) {
-			if (board[1] == ' ')
-				board[1] = computerChar;
-			else if (board[5] == ' ')
-				board[5] = computerChar;
-			else if (board[9] == ' ')
-				board[9] = computerChar;
-			else
-				System.out.println("Player Lost");
-			return;
-		}
-
-		// check in diagonal 2
-		if (board[3] != playerChar && board[5] != playerChar && board[7] != playerChar) {
-			if (board[3] == ' ')
-				board[3] = computerChar;
-			else if (board[5] == ' ')
-				board[5] = computerChar;
-			else if (board[7] == ' ')
-				board[7] = computerChar;
-			else
-				System.out.println("Player Lost");
-			return;
-		}
-		abilityToMakeMoveForComputer1();
-		*/
 	}
 
 	private void abilityToMakeMoveForComputer1() {
@@ -350,14 +241,29 @@ public class TicTacToeGame {
 	}
 
 	public static void main(String args[]) {
-		TicTacToeGame ticTacToeGame = new TicTacToeGame();
-		char[] ticTacToeBoard = ticTacToeGame.createAndReturnBoardUC1();
-		ticTacToeGame.allowPlayerToChoseFromXandOUC2();
-		// ticTacToeGame.displayBoardUC3();
-		// int index = ticTacToeGame.abilityToMakeMoveForPlayerUC4();
-		// ticTacToeGame.displayBoardUC3();
-		Player player = ticTacToeGame.determineWhoPlaysFirstUC6();
-		ticTacToeGame.determineNextMoveUC7(player);
+		
+			while(true){
+				TicTacToeGame ticTacToeGame = new TicTacToeGame();
+				char[] ticTacToeBoard = ticTacToeGame.createAndReturnBoardUC1();
+				ticTacToeGame.allowPlayerToChoseFromXandOUC2();
+				Player player = ticTacToeGame.determineWhoPlaysFirstUC6();
+				ticTacToeGame.determineNextMoveUC7(player);
+				System.out.println("Do you want to play another game" + "\n" + "Enter 1 to play game or 2 to quit");
+				Scanner sc = new Scanner(System.in);
+				int input1 = sc.nextInt();
+				if(input1 == 1) {
+					continue;
+				}
+				else if(input1 == 2) {
+					System.out.println("It was fun having you");
+					break;
+				}
+				else {
+					System.out.println("please enter a valid  input");
+				}
+
+		}
+
 	}
 
 }
